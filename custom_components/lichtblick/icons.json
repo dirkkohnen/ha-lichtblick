@@ -1,0 +1,23 @@
+{
+  "entity": {
+    "sensor": {
+      "current_price": { "default": "mdi:currency-eur" },
+      "next_price": { "default": "mdi:skip-next-circle-outline" },
+      "today_average_price": { "default": "mdi:chart-bell-curve-cumulative" },
+      "today_min_price": { "default": "mdi:arrow-collapse-down" },
+      "today_max_price": { "default": "mdi:arrow-collapse-up" },
+      "today_min_price_time": { "default": "mdi:clock-check-outline" },
+      "today_max_price_time": { "default": "mdi:clock-alert-outline" },
+      "today_cheapest_window_start": { "default": "mdi:clock-start" },
+      "today_cheapest_window_end": { "default": "mdi:clock-end" },
+      "tomorrow_average_price": { "default": "mdi:chart-bell-curve-cumulative" },
+      "tomorrow_min_price": { "default": "mdi:arrow-collapse-down" },
+      "tomorrow_max_price": { "default": "mdi:arrow-collapse-up" },
+      "tomorrow_min_price_time": { "default": "mdi:clock-check-outline" },
+      "price_slots": { "default": "mdi:chart-timeline-variant" }
+    }
+  },
+  "services": {
+    "get_prices": { "service": "mdi:cash-clock" }
+  }
+}

@@ -1,0 +1,17 @@
+get_prices:
+  fields:
+    config_entry:
+      required: true
+      selector:
+        config_entry:
+          integration: lichtblick
+    day:
+      required: false
+      default: all
+      selector:
+        select:
+          translation_key: day
+          options:
+            - today
+            - tomorrow
+            - all

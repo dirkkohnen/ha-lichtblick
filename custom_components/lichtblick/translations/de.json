@@ -1,0 +1,114 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "LichtBlick-Konto verbinden",
+        "description": "Melde dich mit der E-Mail-Adresse und dem Passwort deiner LichtBlick-App an. Voraussetzung ist ein Stromvertrag mit dem dynamischen Tarif (ÖkoStrom Dynamic).",
+        "data": {
+          "email": "E-Mail",
+          "password": "Passwort"
+        },
+        "data_description": {
+          "email": "E-Mail-Adresse deines LichtBlick-Kontos.",
+          "password": "Passwort deines LichtBlick-Kontos."
+        }
+      },
+      "contract": {
+        "title": "Vertrag auswählen",
+        "description": "Dein Konto enthält mehrere Stromverträge. Wähle den Vertrag, dessen Preise angezeigt werden sollen.",
+        "data": {
+          "contract_id": "Vertrag"
+        },
+        "data_description": {
+          "contract_id": "Stromvertrag, für den die dynamischen Preise gelesen werden."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Integration erneut authentifizieren",
+        "description": "LichtBlick hat die Zugangsdaten für {email} abgelehnt. Bitte gib das aktuelle Passwort ein.",
+        "data": {
+          "password": "Passwort"
+        },
+        "data_description": {
+          "password": "Passwort deines LichtBlick-Kontos."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen",
+      "invalid_auth": "Ungültige Zugangsdaten",
+      "rate_limited": "LichtBlick blockiert Anmeldungen vorübergehend. Bitte warte einige Minuten und versuche es erneut.",
+      "no_contracts": "In diesem LichtBlick-Konto wurde kein Stromvertrag gefunden.",
+      "unknown": "Unerwarteter Fehler"
+    },
+    "abort": {
+      "already_configured": "Konto wurde bereits konfiguriert",
+      "reauth_successful": "Die erneute Authentifizierung war erfolgreich",
+      "contract_not_found": "Der eingerichtete Vertrag ist in diesem Konto nicht mehr vorhanden."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "current_price": { "name": "Aktueller Preis" },
+      "next_price": { "name": "Nächster Preis" },
+      "today_average_price": { "name": "Durchschnittspreis heute" },
+      "today_min_price": { "name": "Niedrigster Preis heute" },
+      "today_max_price": { "name": "Höchster Preis heute" },
+      "today_min_price_time": { "name": "Zeitpunkt niedrigster Preis heute" },
+      "today_max_price_time": { "name": "Zeitpunkt höchster Preis heute" },
+      "today_cheapest_window_start": { "name": "Beginn günstigstes Zeitfenster heute" },
+      "today_cheapest_window_end": { "name": "Ende günstigstes Zeitfenster heute" },
+      "tomorrow_average_price": { "name": "Durchschnittspreis morgen" },
+      "tomorrow_min_price": { "name": "Niedrigster Preis morgen" },
+      "tomorrow_max_price": { "name": "Höchster Preis morgen" },
+      "tomorrow_min_price_time": { "name": "Zeitpunkt niedrigster Preis morgen" },
+      "price_slots": {
+        "name": "Preis-Zeitfenster",
+        "unit_of_measurement": "Zeitfenster",
+        "state_attributes": {
+          "prices_today": { "name": "Preise heute" },
+          "prices_tomorrow": { "name": "Preise morgen" }
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "auth_failed": {
+      "message": "LichtBlick hat die Zugangsdaten abgelehnt."
+    },
+    "update_failed": {
+      "message": "Fehler beim Abrufen der Preise von LichtBlick: {error}"
+    },
+    "invalid_config_entry": {
+      "message": "Der Konfigurationseintrag {config_entry} gehört nicht zu LichtBlick."
+    },
+    "config_entry_not_loaded": {
+      "message": "Der LichtBlick-Eintrag {config_entry} ist nicht geladen."
+    }
+  },
+  "services": {
+    "get_prices": {
+      "name": "Preise abrufen",
+      "description": "Liefert die dynamischen Strompreise (EUR/kWh) für heute und/oder morgen.",
+      "fields": {
+        "config_entry": {
+          "name": "Vertrag",
+          "description": "LichtBlick-Vertrag, dessen Preise gelesen werden."
+        },
+        "day": {
+          "name": "Tag",
+          "description": "Für welchen Tag Preise zurückgegeben werden."
+        }
+      }
+    }
+  },
+  "selector": {
+    "day": {
+      "options": {
+        "today": "Heute",
+        "tomorrow": "Morgen",
+        "all": "Heute und morgen"
+      }
+    }
+  }
+}
